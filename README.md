@@ -1,10 +1,19 @@
-# `@typescript-eslint/visitor-keys`
+# CryptoLearn
 
-> Visitor keys used to help traverse the TypeScript-ESTree AST.
+This project uses **React** with **Vite**.
 
-## ✋ Internal Package
+To build the project for GitHub Pages, the Vite configuration specifies a base path of `/cryptolearn-github-pages/` and outputs the build to the `docs` directory. This allows GitHub Pages to serve the compiled site directly from that folder.
 
-This is an _internal package_ to the [typescript-eslint monorepo](https://github.com/typescript-eslint/typescript-eslint).
-You likely don't want to use it directly.
+Run the following command to create the production build:
 
-👉 See **https://typescript-eslint.io** for docs on typescript-eslint.
+```bash
+npm run build
+```
+
+To run the unit tests:
+
+```bash
+npm test
+```
+
+The generated files in `docs/` can then be published using GitHub Pages.

@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/typescript-eslint/typescript-eslint/issues"
   },
-  "homepage": "https://typescript-eslint.io",
+  "homepage": "https://<username>.github.io/cryptolearn-github-pages/",
   "license": "MIT",
   "keywords": [
     "eslint",
@@ -37,24 +37,20 @@
     "estree"
   ],
   "scripts": {
-    "build": "tsc -b tsconfig.build.json",
-    "clean": "tsc -b tsconfig.build.json --clean",
-    "postclean": "rimraf dist/ coverage/",
-    "format": "prettier --write \"./**/*.{ts,mts,cts,tsx,js,mjs,cjs,jsx,json,md,css}\" --ignore-path ../../.prettierignore",
-    "lint": "npx nx lint",
-    "test": "vitest --run --config=$INIT_CWD/vitest.config.mts",
-    "check-types": "npx nx typecheck"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
-    "@typescript-eslint/types": "8.32.1",
-    "eslint-visitor-keys": "^4.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^3.1.3",
-    "prettier": "^3.2.5",
-    "rimraf": "*",
-    "typescript": "*",
-    "vitest": "^3.1.3"
+    "@vitejs/plugin-react": "^4.1.0",
+    "vite": "^5.2.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.5.0"
   },
   "funding": {
     "type": "opencollective",
