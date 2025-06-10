@@ -4,58 +4,39 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import CoinCard from "./CoinCard";
 
-// Mock data for demonstration
-const mockTrendingCoins = [
-  {
-    id: "bitcoin",
-    name: "Bitcoin",
-    symbol: "btc",
-    price: 63452.12,
-    change24h: 2.34,
-    image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png"
-  },
-  {
-    id: "ethereum",
-    name: "Ethereum",
-    symbol: "eth",
-    price: 3421.87,
-    change24h: 1.67,
-    image: "https://assets.coingecko.com/coins/images/279/large/ethereum.png"
-  },
-  {
-    id: "solana",
-    name: "Solana",
-    symbol: "sol",
-    price: 143.26,
-    change24h: -3.21,
-    image: "https://assets.coingecko.com/coins/images/4128/large/solana.png"
-  },
-  {
-    id: "cardano",
-    name: "Cardano",
-    symbol: "ada",
-    price: 0.45,
-    change24h: -0.82,
-    image: "https://assets.coingecko.com/coins/images/975/large/cardano.png"
-  }
-];
+interface Coin {
+  id: string;
+  name: string;
+  symbol: string;
+  price: number;
+  change24h: number;
+  image: string;
+}
 
 const TrendingCoins = () => {
-  const [trending, setTrending] = useState<typeof mockTrendingCoins | null>(null);
+  const [trending, setTrending] = useState<Coin[] | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulating API fetch
     const fetchTrending = async () => {
       setLoading(true);
       try {
-        // In a real app, this would be an API call
-        setTimeout(() => {
-          setTrending(mockTrendingCoins);
-          setLoading(false);
-        }, 1000);
+        const res = await fetch(
+          'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=4&page=1&sparkline=false'
+        );
+        const data = await res.json();
+        const coins: Coin[] = data.map((c: any) => ({
+          id: c.id,
+          name: c.name,
+          symbol: c.symbol,
+          price: c.current_price,
+          change24h: c.price_change_percentage_24h,
+          image: c.image,
+        }));
+        setTrending(coins);
+        setLoading(false);
       } catch (error) {
-        console.error("Error fetching trending coins:", error);
+        console.error('Error fetching trending coins:', error);
         setLoading(false);
       }
     };

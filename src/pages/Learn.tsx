@@ -122,7 +122,7 @@ const Learn = () => {
       
       <footer className="border-t border-border py-6 mt-auto">
         <div className="container px-4 text-center text-sm text-muted-foreground">
-          <p>© 2025 CryptoLearn. All rights reserved.</p>
+          <p>© 2025 Fintech Learn. All rights reserved.</p>
           <p className="mt-1">Educational content provided for informational purposes only.</p>
         </div>
       </footer>

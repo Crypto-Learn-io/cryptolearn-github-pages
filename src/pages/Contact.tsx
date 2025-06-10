@@ -116,8 +116,7 @@ const Contact = () => {
       
       <footer className="border-t border-border py-6">
         <div className="container px-4 text-center text-sm text-muted-foreground">
-          <p>© 2025 CryptoLearn. All rights reserved.</p>
-          <p className="mt-1">Market data provided for educational purposes only.</p>
+          <p>© 2025 Fintech Learn. All rights reserved.</p>
         </div>
       </footer>
     </div>

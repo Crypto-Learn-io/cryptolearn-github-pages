@@ -49,22 +49,22 @@ const Header = () => {
             <div className="h-8 w-8 rounded-full crypto-gradient flex items-center justify-center">
               <TrendingUp className="h-5 w-5 text-white" />
             </div>
-            <span className="font-bold text-xl hidden md:block">CryptoLearn</span>
+            <span className="font-bold text-xl hidden md:block">Fintech Learn</span>
           </Link>
         </div>
 
         <nav className="hidden md:flex items-center gap-6">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/') ? 'text-primary' : 'text-muted-foreground'}`}
           >
-            Markets
+            Home
           </Link>
-          <Link 
-            to="/learn" 
-            className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/learn') ? 'text-primary' : 'text-muted-foreground'}`}
+          <Link
+            to="/courses"
+            className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/courses') ? 'text-primary' : 'text-muted-foreground'}`}
           >
-            Learn
+            Courses
           </Link>
           <Link 
             to="/contact" 
